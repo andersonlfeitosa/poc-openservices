@@ -38,6 +38,7 @@
 
     <modules>
         <module>greeting-service</module>
+        <module>authorizer-service</module>
         <module>calc-service</module>
     </modules>
 
