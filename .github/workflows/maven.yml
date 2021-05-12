@@ -23,11 +23,17 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
-      - name: Build greeting-service with Maven
+      - name: Docker login
+          env:
+            DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+            DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+          run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin docker.io
+
+      - name: Docker greeting-service
         run: mvn -B package docker:build docker:push --file ./greeting-service/pom.xml
 
-      - name: Build calc-service with Maven
+      - name: Docker calc-service
         run: mvn -B package docker:build docker:push --file ./calc-service/pom.xml
 
-      - name: Build authorizer-service with Maven
+      - name: Docker authorizer-service
         run: mvn -B package docker:build docker:push --file ./authorizer-service/pom.xml
