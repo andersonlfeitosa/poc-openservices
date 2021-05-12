@@ -3,26 +3,18 @@ package com.acme.authorizer;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @ToString
 @EqualsAndHashCode
-@NoArgsConstructor
 public class Result {
 
-	@Getter
-	@Setter
-	private Operation operation;
-
-	@Getter
-	@Setter
-	private BigDecimal x;
-
-	@Getter
-	@Setter
-	private BigDecimal y;
-
-	@Getter
-	@Setter
-	private BigDecimal result;
+	private LocalDateTime datetime;
+	private String version;
+	private String uuid;
 
 }

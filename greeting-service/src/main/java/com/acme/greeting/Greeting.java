@@ -5,14 +5,12 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
+@RequiredArgsConstructor
+@Getter
+@Setter
 public class Greeting {
 
-	@Getter
-	@Setter
 	private long id;
-
-	@Getter
-	@Setter
 	private String content;
 
 }

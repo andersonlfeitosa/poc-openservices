@@ -27,4 +27,7 @@ jobs:
         run: mvn -B package docker:build docker:push --file ./greeting-service/pom.xml
 
       - name: Build calc-service with Maven
-        run: mvn -B package docker:build docker:push --file ./calc-service/pom.xmlpom.xml
+        run: mvn -B package docker:build docker:push --file ./calc-service/pom.xml
+
+      - name: Build authorizer-service with Maven
+        run: mvn -B package docker:build docker:push --file ./authorizer-service/pom.xml
