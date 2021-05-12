@@ -24,10 +24,10 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Docker login
-          env:
-            DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-            DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-          run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin docker.io
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+        run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin docker.io
 
       - name: Docker greeting-service
         run: mvn -B package docker:build docker:push --file ./greeting-service/pom.xml
